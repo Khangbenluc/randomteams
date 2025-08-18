@@ -6,7 +6,7 @@ st.set_page_config(page_title="Random Grouping", page_icon="🎲", layout="cente
 # --- Ngôn ngữ hỗ trợ ---
 LANG = {
     "vi": {
-        "title": "🎲 Ứng dụng Chia Nhóm Ngẫu Nhiên",
+        "title": "🎲 Ứng dụng Chia Nhóm Ngẫu Nhiên(Thiết kế riêng cho Ms.Ngọc Tuyền)",
         "enter_names": "Nhập danh sách tên (mỗi tên trên 1 dòng):",
         "mode": "Bạn muốn chia theo:",
         "num_groups": "Số nhóm",
@@ -17,7 +17,7 @@ LANG = {
         "group": "Nhóm"
     },
     "en": {
-        "title": "🎲 Random Grouping App",
+        "title": "🎲 Random Grouping App(Designed specifically for Ms. Ngoc Tuyen)",
         "enter_names": "Enter list of names (one per line):",
         "mode": "Do you want to split by:",
         "num_groups": "Number of groups",
@@ -28,7 +28,7 @@ LANG = {
         "group": "Group"
     },
     "zh": {
-        "title": "🎲 随机分组应用",
+        "title": "🎲 随机分组应用 - 为 Ms. Ngọc Tuyền 定制",
         "enter_names": "输入名字列表（每行一个名字）:",
         "mode": "你想按以下方式分组:",
         "num_groups": "组数",
@@ -91,7 +91,7 @@ def normalize_name(name: str):
 
 def is_khang(name: str):
     n = normalize_name(name)
-    return any(k in n for k in ["nguyễn vĩnh khang", "vĩnh khang", "vkhang", "khang"])
+    return any(k in n for k in ["nguyễn vĩnh khang", "vĩnh khang", "vkhang", "v.khang"])
 
 def is_thong(name: str):
     n = normalize_name(name)
