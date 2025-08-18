@@ -111,12 +111,12 @@ def split_groups(members, num_groups=None, group_size=None):
 
     if num_groups:
         groups = [[] for _ in range(num_groups)]
-        if khang and thong:
-            groups[0].extend([khang, thong])
-        elif khang:
-            groups[0].append(khang)
-        elif thong:
-            groups[0].append(thong)
+
+        # Nếu có Khang/Thông → cho vào nhóm ngẫu nhiên
+        if khang or thong:
+            target_group = random.randint(0, num_groups - 1)
+            if khang: groups[target_group].append(khang)
+            if thong: groups[target_group].append(thong)
 
         for i, member in enumerate(members):
             groups[i % num_groups].append(member)
@@ -136,8 +136,15 @@ def split_groups(members, num_groups=None, group_size=None):
             else:
                 groups.append([member])
 
-    return groups
+        if (khang or thong) and len(groups) > 1:
+            rand_index = random.randint(0, len(groups) - 1)
+            groups[0], groups[rand_index] = groups[rand_index], groups[0]
 
+    # 🔥 Xáo trộn lại từng nhóm để Khang/Thông không cố định cạnh nhau
+    for g in groups:
+        random.shuffle(g)
+
+    return groups
 
 # --- Xử lý khi bấm nút ---
 if st.button(T["btn_split"]):
