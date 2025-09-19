@@ -91,7 +91,7 @@ def normalize_name(name: str):
 
 def is_khang(name: str):
     n = normalize_name(name)
-    return any(k in n for k in ["nguyễn vĩnh khang", "vĩnh khang", "vkhang", "v.khang"])
+    return any(k in n for k in ["nguyễn vĩnh khang", "vĩnh khang", "vkhang", "v.khang",  "kelvin"])
 
 def is_thong(name: str):
     n = normalize_name(name)
@@ -147,7 +147,7 @@ def split_groups(members, num_groups=None, group_size=None):
     return groups
 
 # --- Xử lý khi bấm nút ---
-if st.button(T["btn_split"]):
+if st.button(T["btn_split"], type:"primary"):
     if not names_input.strip():
         st.warning(T["warning"])
     else:
