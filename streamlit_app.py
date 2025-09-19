@@ -1,7 +1,7 @@
 import streamlit as st
 import random
 
-st.set_page_config(page_title="Random Grouping", page_icon="🎲", layout="centered")
+st.set_page_config(page_title="Random Teams Generator", page_icon="🎲", layout="centered")
 
 # --- Ngôn ngữ hỗ trợ ---
 LANG = {
@@ -59,7 +59,7 @@ st.markdown("""
 # --- Hiển thị selectbox nổi ---
 lang_choice = st.selectbox(
     "🌐", 
-    ["Tiếng Việt", "English", "中文"], 
+    ["English", "Tiếng Việt", "中文"], 
     key="lang_select", 
     label_visibility="collapsed"
 )
@@ -72,7 +72,7 @@ T = LANG[lang_key]
 st.title(T["title"])
 
 # --- Nhập dữ liệu ---
-names_input = st.text_area(T["enter_names"])
+names_input = st.text_area(T["enter_names"],  placeholder="Please enter at least 2 names")
 
 option = st.radio(T["mode"], [T["num_groups"], T["group_size"]])
 
