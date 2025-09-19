@@ -147,7 +147,7 @@ def split_groups(members, num_groups=None, group_size=None):
     return groups
 
 # --- Xử lý khi bấm nút ---
-if st.button(T["btn_split"], type:"primary"):
+if st.button(T["btn_split"], type="primary"):
     if not names_input.strip():
         st.warning(T["warning"])
     else:
